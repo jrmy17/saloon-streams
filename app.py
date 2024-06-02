@@ -63,8 +63,12 @@ def index():
     category_name = 'Red Dead Redemption 2'
     game_id = get_category_id(access_token, CLIENT_ID, category_name)
     streams = get_live_streams(access_token, CLIENT_ID, game_id)
-    keyword = 'RDR2'
-    filtered_streams = filter_streams_by_title(streams, keyword)
+    # 'Saloon RolePlay' or 'Saloon RP' or 'Saloon RôlePlay' or "RDR2"
+    keywords = ['Saloon RolePlay', 'Saloon RP', 'Saloon RôlePlay', 'SaloonRP']
+    filtered_streams = []
+    for keyword in keywords:
+      filtered_streams.extend(filter_streams_by_title(streams, keyword))
+
     return render_template('index.html', streams=filtered_streams)
 
 if __name__ == '__main__':

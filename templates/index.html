@@ -19,12 +19,12 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
       <img src="../static/saloon.png" alt="" width="50" height="50" />
-      <a class="navbar-brand" href="#">Twitch Streams</a>
+      <a class="navbar-brand" href="#">Twitch Streams - Saloon RôlePlay</a>
     </nav>
     <div class="container">
       <h1 class="mt-5 text-center">Streams Saloon RôlePlay</h1>
       <div class="stream-grid">
-        {% for stream in streams %}
+        {% if streams %} {% for stream in streams %}
         <div class="card mb-4">
           <img
             src="{{ stream['thumbnail_url']|replace('{width}', '320')|replace('{height}', '180') }}"
@@ -50,7 +50,9 @@
             </div>
           </div>
         </div>
-        {% endfor %}
+        {% endfor %} {% else %}
+        <p>Aucun stream en cours pour le moment</p>
+        {% endif %}
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
