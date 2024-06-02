@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Streams Salon RôlePlay</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <img src="../static/saloon.png" alt="" width="50" height="50" />
+      <a class="navbar-brand" href="#">Twitch Streams</a>
+    </nav>
+    <div class="container">
+      <h1 class="mt-5 text-center">Streams Saloon RôlePlay</h1>
+      <div class="stream-grid">
+        {% for stream in streams %}
+        <div class="card mb-4">
+          <img
+            src="{{ stream['thumbnail_url']|replace('{width}', '320')|replace('{height}', '180') }}"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ stream['title'] }}</h5>
+            <div class="card-f">
+              <a
+                href="https://www.twitch.tv/{{ stream['user_name'] }}"
+                class="card-link"
+                >{{ stream['user_name'] }}</a
+              >
+              <p class="card-text">{{ stream['viewer_count'] }} spectateurs</p>
+              <a
+                href="https://www.twitch.tv/{{ stream['user_name'] }}"
+                class="btn btn-primary"
+                >Regarder</a
+              >
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </body>
+</html>
