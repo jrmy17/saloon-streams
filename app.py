@@ -68,6 +68,8 @@ def index():
     filtered_streams = []
     for keyword in keywords:
       filtered_streams.extend(filter_streams_by_title(streams, keyword))
+    # Remove duplicates
+    filtered_streams = list({stream['user_name']: stream for stream in filtered_streams}.values())
 
     return render_template('index.html', streams=filtered_streams)
 
