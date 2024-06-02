@@ -6,6 +6,10 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+    <link
+      href="https://db.onlinewebfonts.com/c/ab21a97b9cae2e116d8d1473baefc9f0?family=RDR+Lino+Regular"
+      rel="stylesheet"
+    />
     <title>Streams Salon RôlePlay</title>
     <link
       rel="stylesheet"
@@ -41,6 +45,7 @@
                 >{{ stream['user_name'] }}</a
               >
               <p class="card-text">{{ stream['viewer_count'] }} spectateurs</p>
+              <p class="card-text">Débuté à {{ stream['started_at'] }}</p>
               <a
                 href="https://www.twitch.tv/{{ stream['user_name'] }}"
                 class="btn btn-primary"

@@ -63,13 +63,14 @@ def index():
     category_name = 'Red Dead Redemption 2'
     game_id = get_category_id(access_token, CLIENT_ID, category_name)
     streams = get_live_streams(access_token, CLIENT_ID, game_id)
-    # 'Saloon RolePlay' or 'Saloon RP' or 'Saloon RôlePlay' or "RDR2"
     keywords = ['Saloon RolePlay', 'Saloon RP', 'Saloon RôlePlay', 'SaloonRP']
     filtered_streams = []
     for keyword in keywords:
       filtered_streams.extend(filter_streams_by_title(streams, keyword))
-    # Remove duplicates
     filtered_streams = list({stream['user_name']: stream for stream in filtered_streams}.values())
+    for stream in filtered_streams:
+      stream['started_at'] = stream['started_at'][11:16]
+      stream['started_at'] = str((int(stream['started_at'][:2]) + 2) % 24) + stream['started_at'][2:]
 
     return render_template('index.html', streams=filtered_streams)
 
