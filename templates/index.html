@@ -44,7 +44,9 @@
                 target="_blank"
                 >{{ stream['user_name'] }}</a
               >
-              <p class="card-text">{{ stream['viewer_count'] }} spectateurs</p>
+              <p class="card-text spec">
+                {{ stream['viewer_count'] }} spectateurs
+              </p>
               <p class="card-text">Débuté à {{ stream['started_at'] }}</p>
               <a
                 href="https://www.twitch.tv/{{ stream['user_name'] }}"
