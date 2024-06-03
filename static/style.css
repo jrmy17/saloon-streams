@@ -77,3 +77,32 @@ h1 {
 .card-link:hover {
   color: #772ce8;
 }
+
+.footer {
+  color: #ffffff;
+  background-color: #9146ff;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background: #18181b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9146ff;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #772ce8;
+  border-radius: 20px;
+}
